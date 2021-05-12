@@ -1,0 +1,17 @@
+<%= form_for(book) do |f| %>
+
+  <div class="form-title row">
+    <%= f.label :Title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="form-body row">
+  	<%= f.label :Opinion %>
+    <%= f.text_area :body %>
+  </div>
+
+  <div class="actions row">
+    <%= f.submit %>
+  </div>
+
+<% end %>
