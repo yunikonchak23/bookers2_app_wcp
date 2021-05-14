@@ -1,13 +1,24 @@
-<h1>User info</h1>
-<%= form_for(@user) do |f| %>
-<%= render 'books/error', model: @user %>
-  <div class = "user-name" >Name</div>
-    <%= f.text_field :name %>
-  <div class = "user-edit-image" >Image</div>
-    <%= f.attachment_field :profile_image %>
-  <div class = "form-body" >Introduction</div>
-    <%= f.text_area :introduction %><br>
-  <div class = "update" >
-    <%= f.submit "Update User" %>
-  </div>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>User info</h2>
+      <%= form_for(@user) do |f| %>
+      <%= render 'books/error', model: @user %>
+        <div class = "form">
+          <div class = "user-name" >Name</div>
+            <%= f.text_field :name,class:"form-control name" %>
+        </div>
+        <div class = "form">
+          <div class = "user-edit-image" >Image</div>
+            <%= f.attachment_field :profile_image %>
+        </div>
+        <div class = "form">
+          <div class = "form-body" >Introduction</div>
+            <%= f.text_area :introduction,class:"form-control introduction" %>
+        </div>
+        <div class = "form">
+          <div class = "update" >
+            <%= f.submit "Update User",class:"btn btn-secondary"%>
+          </div>
+        </div>
+      <% end %>
