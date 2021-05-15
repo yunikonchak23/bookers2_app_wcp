@@ -20,5 +20,21 @@
  * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;;
+  box-sizing: border-box;
+ }
+
+ .notice{
+  color: green;
+ }
+
+ .error{
+  color: red;
+ }
+
+ .form{
+  padding: 8px 0;
+ }
+
+ .actions{
+  padding: 8px 0;
  }

@@ -1,13 +1,26 @@
 <div class="row">
-  <div class="col-xs-offset-3 col-xs-6" >
+  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto" >
     <h1>Editing Book</h1>
       <%= render 'books/error', model: @book %>
-      <%= render 'books/book', book: @book %>
-    <div class="menu">
-      <%= link_to "Show", book_path(@book) %>
-      |
-      <%= link_to "Back", books_path %>
-    </div>
+      <%= form_for(@book) do |f| %>
+        <div class = "form">
+          <div class = "book-title">Title</div>
+          <%= f.text_field :title,class:"form-control book_title" %>
+        </div>
+        <div class = "form">
+          <div class = "book_opinion">Opinion</div>
+          <%= f.text_area :body,class:"form-control book_opinion" %>
+        </div>
+        <div class = "form">
+          <div class = "update" >
+            <%= f.submit "Update Book",class:"btn btn-secondary"%>
+          </div>
+        </div>
+        <div class="menu">
+          <%= link_to "Show", book_path(@book) %>
+          |
+          <%= link_to "Back", books_path %>
+        </div>
+      <% end %>
   </div>
-  <div class="col-xs-3"></div>
 </div>

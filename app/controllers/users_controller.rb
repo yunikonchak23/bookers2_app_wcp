@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   #(ログインしていない状態で他のページに遷移しようとした場合、ログインページに繊維する)
-  before_action :authenticate_user!
+
   #(ログインユーザー以外の情報を遷移しようとした時に制限をかける)
-  before_action :ensure_current_user, {only: [:edit,:update,:destroy]}
+
 
   def show
     @user = User.find(params[:id])
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:notice] = "You have updated user successfully"
+      flash[:notice] = "You have updated user successfully."
       redirect_to user_path(current_user)
     else
       flash[:notice] = " errors prohibited this obj from being saved."
@@ -44,10 +44,4 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :profile_image, :introduction)
   end
 
-  def  ensure_current_user
-    @user = User.find(params[:id])
-    if @user.id != current_user.id
-      redirect_to user_path(current_user.id)
-    end
-  end
 end
